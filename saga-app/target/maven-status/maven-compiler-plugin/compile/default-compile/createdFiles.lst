@@ -1,0 +1,3 @@
+org/apache/camel/example/saga/SagaRoute.class
+org/apache/camel/example/saga/CamelSagaApplication.class
+org/apache/camel/example/saga/JmsConfig.class

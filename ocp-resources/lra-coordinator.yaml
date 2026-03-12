@@ -1,0 +1,103 @@
+apiVersion: apps.openshift.io/v1
+kind: List
+items:
+- apiVersion: v1
+  kind: Service
+  metadata:
+    labels:
+      app: lra-coordinator
+      csbexample: saga
+    name: lra-coordinator
+  spec:
+    ports:
+    - name: 8080-tcp
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      app: lra-coordinator
+      deployment: lra-coordinator
+    type: ClusterIP
+- apiVersion: v1
+  kind: PersistentVolumeClaim
+  metadata:
+    labels:
+      app: lra-coordinator
+      csbexample: saga
+    name: lra-coordinator
+  spec:
+    accessModes:
+    - ReadWriteMany
+    resources:
+      requests:
+        storage: 200Mi
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    labels:
+      app: lra-coordinator
+      csbexample: saga
+    name: lra-coordinator
+  spec:
+    lookupPolicy:
+      local: true
+    tags:
+    - from:
+        kind: DockerImage
+        name: quay.io/jbosstm/lra-coordinator:latest
+      generation: 0
+      name: "latest"
+      referencePolicy:
+        type: Source
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    generation: 1
+    labels:
+      app: lra-coordinator
+      csbexample: saga
+    name: lra-coordinator
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: lra-coordinator
+        deployment: lra-coordinator
+    strategy:
+      type: Recreate
+    template:
+      metadata:
+        labels:
+          app: lra-coordinator
+          csbexample: saga
+          deployment: lra-coordinator
+      spec:
+        containers:
+        - imagePullPolicy: IfNotPresent
+          image: "lra-coordinator:latest"
+          env:
+          - name: AB_JOLOKIA_OFF
+            value: "true"
+          livenessProbe:
+            httpGet:
+              path: /lra-coordinator
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 180
+          name: lra-coordinator
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          readinessProbe:
+            httpGet:
+              path: /lra-coordinator
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 10
+          volumeMounts:
+          - mountPath: /home/jboss/ObjectStore
+            name: lra-coordinator-data
+        volumes:
+        - name: lra-coordinator-data
+          persistentVolumeClaim:
+            claimName: lra-coordinator

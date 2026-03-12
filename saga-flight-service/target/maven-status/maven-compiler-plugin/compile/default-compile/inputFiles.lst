@@ -1,0 +1,3 @@
+/Users/benoit/cdp-l2/camel-spring-boot-examples/saga/saga-flight-service/src/main/java/org/apache/camel/example/saga/CamelSagaFlightService.java
+/Users/benoit/cdp-l2/camel-spring-boot-examples/saga/saga-flight-service/src/main/java/org/apache/camel/example/saga/FlightRoute.java
+/Users/benoit/cdp-l2/camel-spring-boot-examples/saga/saga-flight-service/src/main/java/org/apache/camel/example/saga/JmsConfig.java

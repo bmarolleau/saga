@@ -1,0 +1,3 @@
+/Users/benoit/cdp-l2/camel-spring-boot-examples/saga/saga-payment-service/src/main/java/org/apache/camel/example/saga/CamelSagaPaymentService.java
+/Users/benoit/cdp-l2/camel-spring-boot-examples/saga/saga-payment-service/src/main/java/org/apache/camel/example/saga/JmsConfig.java
+/Users/benoit/cdp-l2/camel-spring-boot-examples/saga/saga-payment-service/src/main/java/org/apache/camel/example/saga/PaymentRoute.java

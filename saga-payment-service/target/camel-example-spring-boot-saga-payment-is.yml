@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: List
+items:
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    name: camel-example-spring-boot-saga-payment
+  spec:
+    tags:
+    - from:
+        kind: ImageStreamImage
+        name: camel-example-spring-boot-saga-payment@sha256:8d1f6e21d0b5e15c5a20b636b207efc0e9554f29faf5e48d316508dcf4d7df02
+        namespace: team51
+      name: latest

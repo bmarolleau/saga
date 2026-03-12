@@ -1,0 +1,2 @@
+JAVA_MAIN_CLASS=org.springframework.boot.loader.launch.JarLauncher
+JAVA_APP_DIR=/deployments

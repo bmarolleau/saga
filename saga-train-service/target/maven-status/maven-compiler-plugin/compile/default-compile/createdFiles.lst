@@ -1,0 +1,3 @@
+org/apache/camel/example/saga/JmsConfig.class
+org/apache/camel/example/saga/CamelSagaTrainService.class
+org/apache/camel/example/saga/TrainRoute.class

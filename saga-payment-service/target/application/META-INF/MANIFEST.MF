@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Created-By: Maven JAR Plugin 3.5.0
+Java-Version: 21
+Build-Jdk-Spec: 24
+Specification-Title: Camel SB Examples :: Saga :: Payment Service
+Specification-Version: 4.19
+Specification-Vendor: The Apache Software Foundation
+Implementation-Title: Camel SB Examples :: Saga :: Payment Service
+Implementation-Version: 4.19.0-SNAPSHOT
+Implementation-Vendor: The Apache Software Foundation
+Main-Class: org.springframework.boot.loader.launch.JarLauncher
+Start-Class: org.apache.camel.example.saga.CamelSagaPaymentService
+Spring-Boot-Version: 4.0.3
+Spring-Boot-Classes: BOOT-INF/classes/
+Spring-Boot-Lib: BOOT-INF/lib/
+Spring-Boot-Classpath-Index: BOOT-INF/classpath.idx
+Spring-Boot-Layers-Index: BOOT-INF/layers.idx
+
